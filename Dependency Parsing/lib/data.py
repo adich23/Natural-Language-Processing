@@ -1,5 +1,5 @@
 # inbuilt lib imports:
-from typing import List, Dict, Tuple, Any, NamedTuple
+from typing import List, Dict, Tuple, Any, NamedTuple, Union
 import math
 
 # external lib imports:
@@ -124,8 +124,50 @@ def get_configuration_features(configuration: Configuration,
     =================================================================
     """
     # TODO(Students) Start
+    # stack is starting from 0th index
+    # TODO check stack size,buffer size >=3 ,or cases when it's initial configuration
+    s1 = configuration.get_stack(0)
+    s2 = configuration.get_stack(1)
+    b1 = configuration.get_buffer(0)
+    b2 = configuration.get_buffer(1)
 
+    lc1_s1 = configuration.get_left_child(cnt=1, k=s1)
+    rc1_s1 = configuration.get_right_child(cnt=1, k=s1)
+    lc1_s2 = configuration.get_left_child(cnt=1, k=s2)
+    rc1_s2 = configuration.get_right_child(cnt=1, k=s2)
+
+
+    s_w: List[Union[int, Any]] = [s1, s2, configuration.get_stack(2), b1, b2, configuration.get_buffer(2), lc1_s1,
+                                  rc1_s1, configuration.get_left_child(cnt=2, k=s1),
+                                  configuration.get_right_child(cnt=2, k=s1), lc1_s2, rc1_s2,
+                                  configuration.get_left_child(cnt=2, k=s2), configuration.get_right_child(cnt=2, k=s2),
+                                  configuration.get_left_child(cnt=1, k=lc1_s1),
+                                  configuration.get_right_child(cnt=1, k=rc1_s1),
+                                  configuration.get_left_child(cnt=1, k=lc1_s2),
+                                  configuration.get_right_child(cnt=1, k=rc1_s2)]
+
+    s_t = [vocabulary.get_pos_id(configuration.get_pos(i)) for i in s_w]
+    s_l = [vocabulary.get_label_id(configuration.get_label(i)) for i in s_w[6:]]
+
+    features = s_w + s_t + s_l
+    # More verbose intended code
+    # s_w.append(lc1_s1)
+    # s_w.append(rc1_s1)
+    # s_w.append(configuration.get_left_child(cnt=2, k=s1))
+    # s_w.append(configuration.get_right_child(cnt=2, k=s1))
+    #
+    # s_w.append(lc1_s2)
+    # s_w.append(rc1_s2)
+    # s_w.append(configuration.get_left_child(cnt=2, k=s2))
+    # s_w.append(configuration.get_right_child(cnt=2, k=s2))
+    #
+    # s_w.append(configuration.get_left_child(cnt=1, k=lc1_s1))
+    # s_w.append(configuration.get_right_child(cnt=1, k=rc1_s1))
+    #
+    # s_w.append(configuration.get_left_child(cnt=1, k=lc1_s2))
+    # s_w.append(configuration.get_right_child(cnt=1, k=rc1_s2))
     # TODO(Students) End
+
 
     assert len(features) == 48
     return features
