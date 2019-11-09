@@ -103,7 +103,22 @@ class ParsingSystem:
         =================================================================
         """
         # TODO(Students) Start
+        if transition.startswith("L") or transition.startswith("R"):
+            label = transition[2:-1]
+            if transition.startswith("L"):
+                h = configuration.get_stack(0)
+                t = configuration.get_stack(1)
+            else:
+                # Right-Arc
+                h = configuration.get_stack(1)
+                t = configuration.get_stack(0)
 
+            configuration.add_arc(h,t,label)
+        else:
+            # Shift
+            configuration.shift()
+
+        return configuration
         # TODO(Students) End
 
     def num_transitions(self) -> int:
