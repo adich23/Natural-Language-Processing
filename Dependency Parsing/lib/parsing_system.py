@@ -108,10 +108,12 @@ class ParsingSystem:
             if transition.startswith("L"):
                 h = configuration.get_stack(0)
                 t = configuration.get_stack(1)
+                configuration.remove_second_top_stack()
             else:
                 # Right-Arc
                 h = configuration.get_stack(1)
                 t = configuration.get_stack(0)
+                configuration.remove_top_stack()
 
             configuration.add_arc(h,t,label)
         else:
