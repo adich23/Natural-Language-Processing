@@ -24,7 +24,8 @@ class CubicActivation(layers.Layer):
         """
         # TODO(Students) Start
         # Comment the next line after implementing call.
-        raise NotImplementedError
+        # raise NotImplementedError
+        return tf.math.pow(vector,3)
         # TODO(Students) End
 
 
@@ -82,6 +83,22 @@ class DependencyParser(models.Model):
 
         # Trainable Variables
         # TODO(Students) Start
+        self._hidden_dim = hidden_dim
+        # self.hidden_layer = tf.keras.layers.Dense((self._hidden_dim, int(embedding_dim) * num_tokens),
+        #                                           input_shape=(int(embedding_dim) * num_tokens,),
+        #                                           activation=self._activation)
+        #
+        # self.output_layer = tf.keras.layers.Dense((self._hidden_dim, num_transitions))
+
+        self._trainiable = trainable_embeddings
+
+        # defining layer architecture
+        emb_size = int(embedding_dim) * num_tokens
+
+        w_init = tf.random.truncated_normal
+
+        self.w1 = tf.Variable(initial_value=w_init([emb_size, self._hidden_dim],
+                                                   stddev=1.0 / math.sqrt(emb_size)), trainable=self._trainiable)
 
         # TODO(Students) End
 
@@ -115,7 +132,14 @@ class DependencyParser(models.Model):
 
         """
         # TODO(Students) Start
+        emb_inputs = tf.reshape(tf.nn.embedding_lookup(self.embeddings,inputs),[inputs.shape[0],self.w1.shape[0]])
+        imdt_1 = tf.matmul(emb_inputs, self.w1) + self.b1
+        op_1 = self._activation(imdt_1)
 
+        #TODO verify op1 shape = 10k * self._hidden_dim
+
+        imdt_2 = tf.matmul(op_1,self.w2) #+ self.b2
+        logits = imdt_2
         # TODO(Students) End
         output_dict = {"logits": logits}
 

@@ -136,7 +136,6 @@ def get_configuration_features(configuration: Configuration,
     lc1_s2 = configuration.get_left_child(cnt=1, k=s2)
     rc1_s2 = configuration.get_right_child(cnt=1, k=s2)
 
-
     s_w: List[Union[int, Any]] = [s1, s2, configuration.get_stack(2), b1, b2, configuration.get_buffer(2), lc1_s1,
                                   rc1_s1, configuration.get_left_child(cnt=2, k=s1),
                                   configuration.get_right_child(cnt=2, k=s1), lc1_s2, rc1_s2,
@@ -146,10 +145,11 @@ def get_configuration_features(configuration: Configuration,
                                   configuration.get_left_child(cnt=1, k=lc1_s2),
                                   configuration.get_right_child(cnt=1, k=rc1_s2)]
 
+    s_w2 = [vocabulary.get_word_id(configuration.get_word(i)) for i in s_w]
     s_t = [vocabulary.get_pos_id(configuration.get_pos(i)) for i in s_w]
     s_l = [vocabulary.get_label_id(configuration.get_label(i)) for i in s_w[6:]]
 
-    features = s_w + s_t + s_l
+    features = s_w2 + s_t + s_l
     # More verbose intended code
     # s_w.append(lc1_s1)
     # s_w.append(rc1_s1)
