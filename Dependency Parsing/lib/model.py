@@ -100,6 +100,17 @@ class DependencyParser(models.Model):
         self.w1 = tf.Variable(initial_value=w_init([emb_size, self._hidden_dim],
                                                    stddev=1.0 / math.sqrt(emb_size)), trainable=self._trainiable)
 
+        b_init = tf.zeros_initializer()
+        self.b1 = tf.Variable(initial_value=b_init(shape=(self._hidden_dim,)), trainable=self._trainiable)
+
+        self.w2 = tf.Variable(initial_value=w_init([self._hidden_dim, num_transitions],
+                                                   stddev=1.0 / math.sqrt(self._hidden_dim)),
+                              trainable=self._trainiable)
+        # self.b2 = tf.Variable(initial_value=b_init(shape=(num_transitions,), trainable=self._trainiable))
+
+        # TODO trainable in embeddings init
+        self.embeddings = tf.Variable(initial_value=tf.random.uniform([vocab_size, embedding_dim], -0.01, 0.01)
+                                      , trainable=self._trainiable)
         # TODO(Students) End
 
     def call(self,
@@ -147,6 +158,13 @@ class DependencyParser(models.Model):
             output_dict["loss"] = self.compute_loss(logits, labels)
         return output_dict
 
+    def stable_softmax(self,logits):
+        scaled_logits = logits
+        numer = tf.where(scaled_logits == 0.0 ,0,tf.exp(scaled_logits))
+        numer = tf.where(numer == -0.0, 0, numer)
+        softmax = numer/tf.reduce_sum(numer,1,keepdims=True)
+        return softmax
+
     def compute_loss(self, logits: tf.Tensor, labels: tf.Tensor) -> tf.float32:
         """
         Parameters
@@ -163,6 +181,35 @@ class DependencyParser(models.Model):
 
         """
         # TODO(Students) Start
+        # we compute the softmax probabilities only among the feasible transitions in practice.
+        # This means you want to use labels to mask out the infeasible moves,
+        # so that you do not include them in your calculations.
 
+        # NOTE softmax probabilities of correct transition among the feasible transitions.
+        # means who has label = 1
+        # TODO label 0 and 1
+        mask = labels > -1
+        # filtered_logits = tf.boolean_mask(logits, mask)
+        filtered_logits = tf.multiply(logits,mask)
+
+        sf = self.stable_softmax(filtered_logits)
+
+        #TODO label 1
+        eps = 1e-10
+        mask_2 = labels > 0
+        # In Cross entropy loss[ y_i* log(p_i) ] only taking correct ones , therefore y_i = 1
+        p_vec = tf.math.log(sf+eps)
+        p_i = tf.multiply(p_vec,mask_2)
+        loss = -tf.reduce_sum(p_i,axis=None)
+        loss/= logits.shape[0]
+
+        regularization = 0
+        if self._trainiable:
+            # theta = self.w1 + self.b1 + self.w2 + self.embeddings
+            regularization += tf.nn.l2_loss(self.w1)
+            regularization += tf.nn.l2_loss(self.b1)
+            regularization += tf.nn.l2_loss(self.w2)
+            regularization += tf.nn.l2_loss(self.embeddings)
+            regularization*= self._regularization_lambda
         # TODO(Students) End
         return loss + regularization
