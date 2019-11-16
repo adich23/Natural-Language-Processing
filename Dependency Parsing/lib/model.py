@@ -98,17 +98,16 @@ class DependencyParser(models.Model):
         w_init = tf.random.truncated_normal
 
         self.w1 = tf.Variable(initial_value=w_init([emb_size, self._hidden_dim],
-                                                   stddev=1.0 / math.sqrt(emb_size)), trainable=self._trainiable)
+                                                   stddev=1.0 / math.sqrt(emb_size)))
 
         b_init = tf.zeros_initializer()
-        self.b1 = tf.Variable(initial_value=b_init(shape=(self._hidden_dim,)), trainable=self._trainiable)
+        self.b1 = tf.Variable(initial_value=b_init(shape=(self._hidden_dim,)))
 
         self.w2 = tf.Variable(initial_value=w_init([self._hidden_dim, num_transitions],
-                                                   stddev=1.0 / math.sqrt(self._hidden_dim)),
-                              trainable=self._trainiable)
+                                                   stddev=1.0 / math.sqrt(self._hidden_dim)))
         # self.b2 = tf.Variable(initial_value=b_init(shape=(num_transitions,), trainable=self._trainiable))
 
-        # TODO trainable in embeddings init
+        # trainable in embeddings init
         self.embeddings = tf.Variable(initial_value=tf.random.uniform([vocab_size, embedding_dim], -0.01, 0.01)
                                       , trainable=self._trainiable)
         # TODO(Students) End
@@ -161,7 +160,7 @@ class DependencyParser(models.Model):
     def stable_softmax(self,logits):
         scaled_logits = logits
         numer = tf.where(scaled_logits == 0.0 ,0,tf.exp(scaled_logits))
-        numer = tf.where(numer == -0.0, 0, numer)
+        numer = tf.where(numer == 1, 0, numer)
         softmax = numer/tf.reduce_sum(numer,1,keepdims=True)
         return softmax
 
@@ -194,7 +193,7 @@ class DependencyParser(models.Model):
 
         sf = self.stable_softmax(filtered_logits)
 
-        #TODO label 1
+        #label 1
         eps = 1e-10
         mask_2 = labels > 0
         # In Cross entropy loss[ y_i* log(p_i) ] only taking correct ones , therefore y_i = 1
@@ -204,12 +203,15 @@ class DependencyParser(models.Model):
         loss/= logits.shape[0]
 
         regularization = 0
+
         if self._trainiable:
-            # theta = self.w1 + self.b1 + self.w2 + self.embeddings
-            regularization += tf.nn.l2_loss(self.w1)
-            regularization += tf.nn.l2_loss(self.b1)
-            regularization += tf.nn.l2_loss(self.w2)
             regularization += tf.nn.l2_loss(self.embeddings)
-            regularization*= self._regularization_lambda
+
+        regularization += tf.nn.l2_loss(self.w1)
+        regularization += tf.nn.l2_loss(self.b1)
+        regularization += tf.nn.l2_loss(self.w2)
+
+        regularization*= self._regularization_lambda
+
         # TODO(Students) End
         return loss + regularization
