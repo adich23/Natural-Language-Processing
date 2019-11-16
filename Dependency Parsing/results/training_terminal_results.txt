@@ -1,0 +1,494 @@
+==========Basic Model==============
+
+Generating Training batches:
+100% 190/190 [00:15<00:00, 12.61it/s]
+
+Epoch 0
+  0% 0/190 [00:00<?, ?it/s]2019-11-12 09:25:15.134795: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcublas.so.10.0
+Average training loss: 0.45 : 100% 190/190 [00:22<00:00,  8.43it/s]
+Evaluating validation performance:
+100% 1700/1700 [02:11<00:00, 11.26it/s]
+
+UAS: 82.24692773637112
+UASnoPunc: 84.20561804103318
+LAS: 79.38529800334022
+LASnoPunc: 81.00096083196745
+
+UEM: 23.352941176470587
+UEMnoPunc: 25.058823529411764
+ROOT: 81.47058823529412
+
+
+Epoch 1
+Average training loss: 0.17 : 100% 190/190 [00:21<00:00,  8.79it/s]
+Evaluating validation performance:
+100% 1700/1700 [02:12<00:00, 11.89it/s]
+
+UAS: 85.46002941396415
+UASnoPunc: 87.16441530548805
+LAS: 82.80280180472118
+LASnoPunc: 84.15757644266094
+
+UEM: 28.705882352941178
+UEMnoPunc: 31.11764705882353
+ROOT: 86.58823529411765
+
+
+Epoch 2
+Average training loss: 0.14 : 100% 190/190 [00:21<00:00,  8.78it/s]
+Evaluating validation performance:
+100% 1700/1700 [02:10<00:00, 12.11it/s]
+
+UAS: 86.74377445970536
+UASnoPunc: 88.44740857966427
+LAS: 84.13889373582272
+LASnoPunc: 85.49991522070876
+
+UEM: 31.058823529411764
+UEMnoPunc: 33.94117647058823
+ROOT: 87.82352941176471
+
+
+Epoch 3
+Average training loss: 0.12 : 100% 190/190 [00:21<00:00,  8.83it/s]
+Evaluating validation performance:
+100% 1700/1700 [02:11<00:00, 12.75it/s]
+
+UAS: 87.12017349253433
+UASnoPunc: 88.83739331939185
+LAS: 84.60752299523892
+LASnoPunc: 85.99446108630532
+
+UEM: 32.64705882352941
+UEMnoPunc: 35.35294117647059
+ROOT: 87.94117647058823
+
+
+Epoch 4
+Average training loss: 0.10 : 100% 190/190 [00:21<00:00,  8.85it/s]
+Evaluating validation performance:
+100% 1700/1700 [02:08<00:00, 11.30it/s]
+
+UAS: 87.97267991125956
+UASnoPunc: 89.64279658622054
+LAS: 85.40518981977715
+LASnoPunc: 86.73486689651274
+
+UEM: 35.411764705882355
+UEMnoPunc: 38.529411764705884
+ROOT: 89.94117647058823
+
+
+Final model stored in serialization directory: serialization_dirs/basic
+
+
+==============Tanh============
+
+Epoch 0
+  0% 0/190 [00:00<?, ?it/s]2019-11-12 09:47:41.298404: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcublas.so.10.0
+Average training loss: 0.74 : 100% 190/190 [00:21<00:00,  8.83it/s]
+Evaluating validation performance:
+100% 1700/1700 [01:48<00:00, 15.73it/s]
+
+UAS: 76.97734127676546
+UASnoPunc: 79.44949980218165
+LAS: 73.55235934890446
+LASnoPunc: 75.64573560165037
+
+UEM: 16.0
+UEMnoPunc: 16.764705882352942
+ROOT: 73.94117647058823
+
+
+Epoch 1
+Average training loss: 0.23 : 100% 190/190 [00:21<00:00,  8.97it/s]
+Evaluating validation performance:
+100% 1700/1700 [01:50<00:00, 14.39it/s]
+
+UAS: 83.04459456090935
+UASnoPunc: 85.03362911886056
+LAS: 80.29762943390583
+LASnoPunc: 81.93070705928899
+
+UEM: 23.941176470588236
+UEMnoPunc: 26.0
+ROOT: 83.05882352941177
+
+
+Epoch 2
+Average training loss: 0.17 : 100% 190/190 [00:21<00:00,  8.97it/s]
+Evaluating validation performance:
+100% 1700/1700 [01:48<00:00, 15.64it/s]
+
+UAS: 85.44756586983074
+UASnoPunc: 87.2435426439835
+LAS: 82.89004661365506
+LASnoPunc: 84.34691685977505
+
+UEM: 29.058823529411764
+UEMnoPunc: 31.0
+ROOT: 86.0
+
+
+Epoch 3
+Average training loss: 0.15 : 100% 190/190 [00:21<00:00,  8.98it/s]
+Evaluating validation performance:
+100% 1700/1700 [01:48<00:00, 14.06it/s]
+
+UAS: 86.6964129919984
+UASnoPunc: 88.39936698129203
+LAS: 84.22115312710322
+LASnoPunc: 85.59599841745323
+
+UEM: 32.76470588235294
+UEMnoPunc: 35.0
+ROOT: 87.3529411764706
+
+
+Epoch 4
+Average training loss: 0.13 : 100% 190/190 [00:20<00:00,  9.06it/s]
+Evaluating validation performance:
+100% 1700/1700 [01:47<00:00, 15.86it/s]
+
+UAS: 87.42428396938953
+UASnoPunc: 89.043689594755
+LAS: 85.08612308996186
+LASnoPunc: 86.39574973153225
+
+UEM: 34.294117647058826
+UEMnoPunc: 36.88235294117647
+ROOT: 88.17647058823529
+
+
+Final model stored in serialization directory: serialization_dirs/tanh
+
+
+=================Sigmoid================
+
+
+
+Epoch 0
+  0% 0/190 [00:00<?, ?it/s]2019-11-12 10:07:46.188534: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcublas.so.10.0
+Average training loss: 1.19 : 100% 190/190 [00:21<00:00,  8.87it/s]
+Evaluating validation performance:
+100% 1700/1700 [01:49<00:00, 15.53it/s]
+
+UAS: 67.20093725851883
+UASnoPunc: 70.38659356807777
+LAS: 60.550390108931374
+LASnoPunc: 62.951449725880295
+
+UEM: 8.764705882352942
+UEMnoPunc: 9.470588235294118
+ROOT: 56.11764705882353
+
+
+Epoch 1
+Average training loss: 0.35 : 100% 190/190 [00:21<00:00,  8.74it/s]
+Evaluating validation performance:
+100% 1700/1700 [01:51<00:00, 14.07it/s]
+
+UAS: 79.21579380312586
+UASnoPunc: 81.67636918555361
+LAS: 75.78582645761149
+LASnoPunc: 77.80760752840106
+
+UEM: 18.705882352941178
+UEMnoPunc: 19.705882352941178
+ROOT: 75.82352941176471
+
+
+Epoch 2
+Average training loss: 0.23 : 100% 190/190 [00:21<00:00,  8.84it/s]
+Evaluating validation performance:
+100% 1700/1700 [01:48<00:00, 14.20it/s]
+
+UAS: 82.87509036069497
+UASnoPunc: 84.92059006386707
+LAS: 80.12812523369145
+LASnoPunc: 81.81766800429548
+
+UEM: 23.176470588235293
+UEMnoPunc: 24.58823529411765
+ROOT: 81.94117647058823
+
+
+Epoch 3
+Average training loss: 0.19 : 100% 190/190 [00:21<00:00,  8.97it/s]
+Evaluating validation performance:
+100% 1700/1700 [01:48<00:00, 15.64it/s]
+
+UAS: 84.79198344841339
+UASnoPunc: 86.67269541626632
+LAS: 82.23695690106439
+LASnoPunc: 83.77889560843272
+
+UEM: 27.11764705882353
+UEMnoPunc: 29.294117647058822
+ROOT: 85.3529411764706
+
+
+Epoch 4
+Average training loss: 0.17 : 100% 190/190 [00:21<00:00,  9.03it/s]
+Evaluating validation performance:
+100% 1700/1700 [01:46<00:00, 15.90it/s]
+
+UAS: 86.11311912655482
+UASnoPunc: 87.89634318657096
+LAS: 83.64783009696637
+LASnoPunc: 85.1042785282315
+
+UEM: 30.058823529411764
+UEMnoPunc: 32.705882352941174
+ROOT: 87.3529411764706
+
+
+Final model stored in serialization directory: serialization_dirs/sigmoid
+
+
+==============Basic Command-2=============
+
+
+UAS: 82.24692773637112
+UASnoPunc: 84.20561804103318
+LAS: 79.38529800334022
+LASnoPunc: 81.00096083196745
+
+UEM: 23.352941176470587
+UEMnoPunc: 25.058823529411764
+ROOT: 81.47058823529412
+
+
+Epoch 1
+Average training loss: 0.17 : 100% 190/190 [00:21<00:00,  8.70it/s]
+Evaluating validation performance:
+100% 1700/1700 [02:15<00:00, 11.36it/s]
+
+UAS: 85.46002941396415
+UASnoPunc: 87.16441530548805
+LAS: 82.80280180472118
+LASnoPunc: 84.15757644266094
+
+UEM: 28.705882352941178
+UEMnoPunc: 31.11764705882353
+ROOT: 86.58823529411765
+
+
+Epoch 2
+Average training loss: 0.14 : 100% 190/190 [00:21<00:00,  8.64it/s]
+Evaluating validation performance:
+100% 1700/1700 [02:14<00:00, 11.69it/s]
+
+UAS: 86.74377445970536
+UASnoPunc: 88.44740857966427
+LAS: 84.13889373582272
+LASnoPunc: 85.49991522070876
+
+UEM: 31.058823529411764
+UEMnoPunc: 33.94117647058823
+ROOT: 87.82352941176471
+
+
+Epoch 3
+Average training loss: 0.12 : 100% 190/190 [00:21<00:00,  8.68it/s]
+Evaluating validation performance:
+100% 1700/1700 [02:16<00:00, 12.07it/s]
+
+UAS: 87.12017349253433
+UASnoPunc: 88.83739331939185
+LAS: 84.60752299523892
+LASnoPunc: 85.99446108630532
+
+UEM: 32.64705882352941
+UEMnoPunc: 35.35294117647059
+ROOT: 87.94117647058823
+
+
+Epoch 4
+Average training loss: 0.10 : 100% 190/190 [00:22<00:00,  8.51it/s]
+Evaluating validation performance:
+100% 1700/1700 [02:16<00:00, 11.91it/s]
+
+UAS: 87.97267991125956
+UASnoPunc: 89.64279658622054
+LAS: 85.40518981977715
+LASnoPunc: 86.73486689651274
+
+UEM: 35.411764705882355
+UEMnoPunc: 38.529411764705884
+ROOT: 89.94117647058823
+
+
+Final model stored in serialization directory: serialization_dirs/basic2
+
+
+
+============wo-glove=====================
+
+
+Epoch 0
+  0% 0/190 [00:00<?, ?it/s]2019-11-12 10:45:24.196956: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcublas.so.10.0
+Average training loss: nan : 100% 190/190 [00:21<00:00,  8.89it/s]
+Evaluating validation performance:
+100% 1700/1700 [02:12<00:00, 11.46it/s]
+
+UAS: 81.45175362065957
+UASnoPunc: 83.80715537218109
+LAS: 78.64994889946905
+LASnoPunc: 80.65619171423727
+
+UEM: 22.058823529411764
+UEMnoPunc: 23.941176470588236
+ROOT: 77.70588235294117
+
+
+Epoch 1
+Average training loss: 0.18 : 100% 190/190 [00:20<00:00,  9.13it/s]
+Evaluating validation performance:
+100% 1700/1700 [02:07<00:00, 11.80it/s]
+
+UAS: 84.52027818630506
+UASnoPunc: 86.46922511727801
+LAS: 81.88049953884887
+LASnoPunc: 83.50194992369863
+
+UEM: 28.0
+UEMnoPunc: 30.470588235294116
+ROOT: 83.47058823529412
+
+
+Epoch 2
+Average training loss: 0.14 : 100% 190/190 [00:20<00:00,  9.14it/s]
+Evaluating validation performance:
+100% 1700/1700 [02:07<00:00, 12.28it/s]
+
+UAS: 85.43510232569733
+UASnoPunc: 87.2661504549822
+LAS: 82.93740808136202
+LASnoPunc: 84.45147798564405
+
+UEM: 29.294117647058822
+UEMnoPunc: 31.88235294117647
+ROOT: 85.11764705882354
+
+
+Epoch 3
+Average training loss: 0.11 : 100% 190/190 [00:20<00:00,  9.18it/s]
+Evaluating validation performance:
+100% 1700/1700 [02:06<00:00, 12.78it/s]
+
+UAS: 85.67190966423212
+UASnoPunc: 87.4470129429718
+LAS: 83.17920083755017
+LASnoPunc: 84.63799242638332
+
+UEM: 29.88235294117647
+UEMnoPunc: 32.705882352941174
+ROOT: 85.52941176470588
+
+
+Epoch 4
+Average training loss: 0.09 : 100% 190/190 [00:20<00:00,  9.18it/s]
+Evaluating validation performance:
+100% 1700/1700 [02:07<00:00, 12.33it/s]
+
+UAS: 85.96854201460728
+UASnoPunc: 87.79460803707681
+LAS: 83.41850088491164
+LASnoPunc: 84.91776408749223
+
+UEM: 30.764705882352942
+UEMnoPunc: 33.35294117647059
+ROOT: 85.82352941176471
+
+
+
+Final model stored in serialization directory: serialization_dirs/wo_glove
+
+================wo_emb_tune================
+
+
+Epoch 0
+  0% 0/190 [00:00<?, ?it/s]2019-11-12 21:52:35.940444: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcublas.so.10.0
+Average training loss: 0.48 : 100% 190/190 [00:15<00:00, 13.72it/s]
+Evaluating validation performance:
+100% 1700/1700 [02:49<00:00,  9.44it/s]
+
+UAS: 78.53029887578832
+UASnoPunc: 80.69858135985983
+LAS: 75.36206595707556
+LASnoPunc: 77.17176284406263
+
+UEM: 19.058823529411764
+UEMnoPunc: 20.41176470588235
+ROOT: 74.70588235294117
+
+
+Epoch 1
+Average training loss: 0.19 : 100% 190/190 [00:14<00:00, 13.62it/s]
+Evaluating validation performance:
+100% 1700/1700 [02:47<00:00, 10.14it/s]
+
+UAS: 82.01510581548969
+UASnoPunc: 83.99932176567003
+LAS: 79.20333025899245
+LASnoPunc: 80.84553213135138
+
+UEM: 23.647058823529413
+UEMnoPunc: 25.529411764705884
+ROOT: 79.6470588235294
+
+
+Epoch 2
+Average training loss: 0.17 : 100% 190/190 [00:14<00:00, 13.40it/s]
+Evaluating validation performance:
+100% 1700/1700 [02:49<00:00, 10.00it/s]
+
+UAS: 83.76000199416706
+UASnoPunc: 85.53665291358165
+LAS: 81.10526709375078
+LASnoPunc: 82.54111795625388
+
+UEM: 25.941176470588236
+UEMnoPunc: 28.41176470588235
+ROOT: 82.70588235294117
+
+
+Epoch 3
+Average training loss: 0.15 : 100% 190/190 [00:14<00:00, 13.89it/s]
+Evaluating validation performance:
+100% 1700/1700 [02:47<00:00, 10.15it/s]
+
+UAS: 83.04210185208265
+UASnoPunc: 84.99689142598768
+LAS: 80.44719196350674
+LASnoPunc: 82.08048380715537
+
+UEM: 25.0
+UEMnoPunc: 27.0
+ROOT: 80.82352941176471
+
+
+Epoch 4
+Average training loss: 0.14 : 100% 190/190 [00:15<00:00, 13.07it/s]
+Evaluating validation performance:
+100% 1700/1700 [02:48<00:00,  9.42it/s]
+
+UAS: 84.04915621806217
+UASnoPunc: 85.88142203131181
+LAS: 81.45175362065957
+LASnoPunc: 82.95936245972983
+
+UEM: 27.0
+UEMnoPunc: 29.176470588235293
+ROOT: 82.58823529411765
+
+
+Final model stored in serialization directory: serialization_dirs/wo_emb_tune
+
+
+
+
+
+
+
