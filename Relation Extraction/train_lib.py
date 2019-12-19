@@ -31,7 +31,6 @@ def train(model, optimizer, train_instances, validation_instances, num_epochs, b
                 ### TODO(student) START
                 lambda_ = 1e-5
                 regularization = lambda_ *tf.math.reduce_sum([ tf.nn.l2_loss(mat) for mat in model.trainable_variables])
-                # regularization = 0
                 ### TODO(Student) END
                 loss_val += regularization
                 grads = tape.gradient(loss_val, model.trainable_variables)

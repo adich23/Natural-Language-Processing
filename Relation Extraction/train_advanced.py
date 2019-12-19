@@ -50,7 +50,7 @@ if __name__ == '__main__':
 
     ### TODO(Students) START
     # make a config file here as expected by your MyAdvancedModel
-    config = {'vocab_size': vocab_size, 'embed_dim': args.embed_dim, 'training': True, 'hidden_size': args.hidden_size}
+    config = {'vocab_size': vocab_size, 'embed_dim': args.embed_dim, 'training': True}
     ### TODO(Students END
     model = MyAdvancedModel(**config)
     config['type'] = 'advanced'
